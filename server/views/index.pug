@@ -1,5 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+ h1 Welcome #{username}
+ p.ciao Welcome to #{title}
+ p ciaooo
+ p.ciao hooo
+ p eheheh
+ a(href=`${link}`) #{array[1]}
+ ul
+   each item in array
+     if item == "elemento 3"
+       li #{item}
+     else
+       li Non sono il 3
