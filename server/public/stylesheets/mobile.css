@@ -1,0 +1,23 @@
+@media screen and (max-width: 600px) {
+  header{
+    text-align: center;
+  }
+  .tube-button{
+   float: none;
+  }
+  .row{
+    margin-top: 150px;
+  }
+  header ul{
+    float: none;
+  }
+  header{
+    text-align: center;
+  }
+  .content{
+    margin-top: 20%;
+  }
+  img{
+    width: 300px;
+  }
+}

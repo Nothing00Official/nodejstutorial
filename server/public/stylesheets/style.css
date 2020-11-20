@@ -1,16 +1,171 @@
-body {
+html, body { height: 100%; }
+body { margin: 0; font-family: Ubuntu, "Helvetica Neue", sans-serif;}
+html {
+  scroll-behavior: smooth;
+}
+input.tube-control{
+  padding: 20px;
+  outline: none;
+  border: none;
+  background-color: rgb(233, 233, 233);
+  color: rgb(153, 153, 153);
+  font-size: 17px;
+  border-radius: 10px;
+  width: 100%;
+  transition: 0.5s;
+  margin: 15px;
+}
+.error{
+  font-weight: bold;
+  color: rgb(182, 24, 24);
+  text-align: center;
+  padding: 25px;
+}
+.tube-button{
+  border: none;
+  outline: none;
+  padding: 20px;
+  width: 100%;
+  border-radius: 10px;
+  color: white;
+  background-color: rgb(218, 85, 85);
+  text-transform: capitalize;
+  font-weight: bold;
+  margin: 15px;
+  transition: 0.3s;
+}
+.tube-button:hover{
+  padding: 20px 23px;
+  margin: 15px 12px;
+}
+.content{
+  margin-top: 10%;
+}
+footer{
+  text-align: center;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  clear: both;
+}
+header{
+  background-color: white;
+  text-transform: capitalize;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.content{
+  margin-top: 10%;
+}
+header a{
+  text-decoration: none;
+}
+.logo img{
+  width: 200px;
+}
+a.logo{
+  color: rgb(199, 37, 37);
+  display: inline-block;
+}
+a.logo:hover{
+  opacity: 0.7;
+}
+header ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  float: right;
+}
+header ul li{
+  display: inline-block;
+  padding: 10px 30px;
+}
+header li a{
+  color: rgb(66, 66, 66);
+  font-size: 15px;
+  transition: 0.5s;
+}
+header li a:hover{
+  opacity: 0.7;
+}
+#header{
+  transition: 0.4s;
+  z-index: 9999;
+}
+h1{
+  font-size: 300%;
+  margin-bottom: 15%;
+  margin-top: 7%;
+}
+h1, h2, h3{
+  text-transform: capitalize;
+  font-weight: 600;
+}
+.lead{
+  color: rgb(134, 134, 134);
+}
+.text{
+  padding:  5%;
+}
+.row{
+  margin-bottom: 10%;
+}
+.tube-button.action{
+  width: 200px;
+  margin: auto;
+  margin-top: 30px;
+}
+.tube-button.action:hover{
+  width: 220px;
+  margin: 30px 5px;
+}
+.container{
+  text-transform: capitalize;
+  text-align: center;
+  padding-top: 70px;
+}
+td{
+  padding: 20px;
+}
+td a{
+  text-decoration: none;
+  color: rgb(248, 128, 128);
+  text-transform: lowercase;
+}
+table{
+  margin: auto;
+  margin-top: 30px;
+  text-align: center;
+}
+table h2{
+  color: rgb(170, 170, 170);
+  font-size: 25px;
+  width: 250px;
+}
+1{
+  margin: 60px auto;
+}
+h2{
+  color: rgb(161, 161, 161);
+  margin: 30px auto;
+}
+.tube-button.action{
+  width: 250px;
+  margin: auto;
+  margin-bottom: 60px;
+  position: relative;
+  transition: 0.3s;
+  top: 0;
+}
+.tube-button.action:hover{
+  top: 2px;
+  border-radius: 50px;
 }
 
-a {
-  color: #00B7FF;
-}
-
-.ciao{
-    color: gold;
-}
-
-#idacaso{
-    color: green;
+.tube-button:hover{
+  border-radius: 50px;
+  background-color: transparent;
+  color: rgb(223, 70, 70);
+  border: 1px solid rgb(223, 70, 70);
 }

@@ -1,15 +1,46 @@
 extends layout
 
 block content
- h1 Welcome #{username}
- p.ciao Welcome to #{title}
- p ciaooo
- p.ciao hooo
- p eheheh
- a(href=`${link}`) #{array[1]}
- ul
-   each item in array
-     if item == "elemento 3"
-       li #{item}
-     else
-       li Non sono il 3
+ .container.text-center
+   h1 Come funziona
+   .row
+    .col-12.col-md-6.text
+      h2 Sei uno studente?
+      p.lead
+        | Crea un account in pochi brevi passaggi! e accedi ad una raccolta video. Tecnologia,
+        | Matematica, Inglese, Storia e Letteratura, Economia e molto altro! Il nostro portale ha le lezioni
+        | che fanno per te!
+      button.tube-button.action([routerlink]="['registrazione-studente']") Registrati Ora!
+    .col-12.col-md-6
+      img(alt='students' src='/images/students.png')
+    .row
+     .col-12.col-md-6
+       img(alt='creators' src='/images/creators.png')
+     .col-12.col-md-6.text
+       h2 Sei un Content Creator?
+       p.lead
+        | Crei video e contenuti didattici su YouTube per gli studenti? Non importa il
+        | numero di iscritti, ma importa la qualit&agrave;! Qualsiasi materia tu offra proponi i tuoi
+        | contenuti se ritieni di rispettare i 
+        a(target='_blank' href='https://edu.unidea.org/it/projects/2020/piattaforma-digitale-tubestudents')
+          | requisiti
+          | di idoneit&agrave;!
+       button.tube-button.action([routerlink]="['invia-video']") Scopri di pi&ugrave;!
+    .row
+     .col-12.col-md-6.text
+       h2 Non sei studente o creator e vuoi aiutarci?
+       p.lead
+        | Se vuoi contribuire allo sviluppo e alla condivisione di questa piattaforma e
+        | dell&apos;iniziativa stessa, ma necessiti di pi&ugrave; dettagli contattaci e ti offriremo un
+        | account temporaneo per visitare la piattaforma!
+       button.tube-button.action([routerlink]="['assistenza']") Contattaci!
+     .col-12.col-md-6
+       img(alt='guest' src='/images/guest.png')
+     .col-12
+       h2 Sostieni l&apos;iniziativa con una donazione!
+       .row
+        .col-12.col-md-10
+          input.tube-control(type='number' #donation='' value='5' placeholder='Sostieni la piattaforma con una donazione!')
+        .col-md-2.col-12
+          button.tube-button((click)='goDonation(donation.value)') Dona
+

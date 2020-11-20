@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .container
+    h1 Crea il tuo account studente!
+    h2 Step 1: Registrati alla piattaforma UNIDEA Students, ti basteranno 5 minuti!
+    button.tube-button.action(type='button') Registrati
+    h2
+      | Step 2: Inserisci l&apos;indirizzo mail registrato ad UNIDEA Students per attivare il tuo account!
+    .row
+      .col-md-10.col-12
+        input.tube-control(type='email' placeholder="Inserisci l'indirizzo email")
+      .col-md-2.col-12
+        button.tube-button(type='button') Crea Account
