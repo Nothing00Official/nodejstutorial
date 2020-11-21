@@ -3,13 +3,13 @@ extends layout
 block content
   .container
    h1 Accedi al tuo account
-   form.row
+   form.row(method='post', action='/account')
     .col-12.col-md-6
       input.tube-control(type='text', placeholder='username')
     .col-12.col-md-6
       input.tube-control(type='password', placeholder='password')
     .col-12
-      button.tube-button(type='button') Accedi
+      button.tube-button(type='submit') Accedi
     .col-12
       | Se non ricordi le tue credenziali di accesso contatta l&apos;assistenza tramite
       | l&apos;apposito contatto!
