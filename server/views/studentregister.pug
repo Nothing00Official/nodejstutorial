@@ -3,15 +3,15 @@ extends layout
 block content
   .container
     h1 Crea il tuo account studente!
-    form(method='post')
+    form(method='post', action='/account')
       .row
         .col-md-6.col-12
-          input.tube-control(type='text', placeholder='username')
+          input.tube-control(type='text', placeholder='username', name='username')
         .col-md-6.col-12
-          input.tube-control(type='email', placeholder='E-Mail')
+          input.tube-control(type='email', placeholder='E-Mail', name='email')
         .col-md-6.col-12
-          input.tube-control(type='password', placeholder='password')
+          input.tube-control(type='password', placeholder='password', name='psw')
         .col-md-6.col-12
-          input.tube-control(type='password', placeholder='conferma password')
+          input.tube-control(type='password', placeholder='conferma password', name='rpsw')
         .col-12
           input.tube-button(type='submit', value='Registrati')
