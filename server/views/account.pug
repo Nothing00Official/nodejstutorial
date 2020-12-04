@@ -4,4 +4,8 @@ block content
   .container
    h2 Benvenuto #{user} (#{mail})
    p Oggi &egrave; il #{date}
-   button.tube-button Logout
+   div
+    a(href="/account/upload") Vai all'upload |
+    a(href="/account") Visualizza utenti |
+    a(href="/account") Logout
+   

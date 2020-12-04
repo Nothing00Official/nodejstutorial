@@ -3,7 +3,11 @@ var router = express.Router();
 
 const users = require('../users.json');
 
-router.post('/', function (req, res, next) {
+router.get('/upload', function (req, res, next) {
+    res.render('upload', { title: 'Upload Test' });
+});
+
+router.get('/', function (req, res, next) {
     let username = req.body.username;
     let email = req.body.email;
     let psw = req.body.psw;
@@ -16,11 +20,22 @@ router.post('/', function (req, res, next) {
     }
 });
 
-router.get('/:email/:color', function (req, res, next) {
-    let mail = req.params.email;
-    let user = users.find(el => el.email == mail);
-    user["color"] = req.params.color;
-    res.render('user', user)
+router.post('/', function (req, res, next) {
+    let username = req.body.username;
+    let email = req.body.email;
+    let psw = req.body.psw;
+    let rpsw = req.body.rpsw;
+
+    if (psw != rpsw) {
+        res.send("<p style=\"color:red\">Le password non coincidono!</p>")
+    } else {
+        res.send("<p style=\"color:green\">Registrazione completa!</p>")
+    }
 });
+
+router.get('/users', function (req, res, next) {
+    res.render('users', {users: users});
+});
+
 
 module.exports = router;

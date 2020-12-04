@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .container
+   h1 Carica un file
+   form.row(method='post', action='/account/upload', enctype="multipart/form-data")
+    .col-12.col-md-9
+      input.tube-control(type='file', value='Carica un file' name="filetoupload")
+    .col-12.col-md-3
+      button.tube-button(type='submit') Upload

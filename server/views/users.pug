@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div.content.text-center
+    h2 Ecco gli utenti!
+    br
+    .row
+      each user in users
+        .col-6
+          img(src=`${user.picture}` style='width:52px;height:52px')
+        .col-6.text-left
+          h1 
+            a(href=`/account/users/${user.email}`) #{user.name}
