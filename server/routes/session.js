@@ -2,6 +2,12 @@ var express = require('express');
 var router = express.Router();
 
 const users = require('../users.json');
+const multipart = require('connect-multiparty');
+const multipartMiddleware = multipart({ uploadDir: './uploads' })
+
+router.post('/upload', multipartMiddleware, function (req, res, next) {
+    res.render('upload', { title: 'Upload Test', fileName: req.files.filetoupload.name });
+});
 
 router.get('/upload', function (req, res, next) {
     res.render('upload', { title: 'Upload Test' });
@@ -34,7 +40,7 @@ router.post('/', function (req, res, next) {
 });
 
 router.get('/users', function (req, res, next) {
-    res.render('users', {users: users});
+    res.render('users', { users: users });
 });
 
 
