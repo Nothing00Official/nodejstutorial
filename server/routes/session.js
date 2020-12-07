@@ -40,8 +40,12 @@ router.post('/', function (req, res, next) {
 });
 
 router.get('/users', function (req, res, next) {
-    res.render('users', { users: users });
+    res.render('users', { users: users }); 
 });
 
+router.get('/users/:email', function (req, res, next) {
+    let user = users.find(u => u.email == req.params.email);
+    res.render('user', user); 
+});
 
 module.exports = router;

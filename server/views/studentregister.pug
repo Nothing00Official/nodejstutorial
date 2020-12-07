@@ -2,18 +2,15 @@ extends layout
 
 block content
   .container
-<<<<<<< HEAD
-    h1 Crea il tuo account studente!
-    form(method='post', action='/account')
-=======
     h1 Crea il tuo account studente!!!
     form(method='post')
->>>>>>> 1e448bf7e517167d66b91701aaf487f0c808ba6b
       .row
         .col-md-6.col-12
           input.tube-control(type='text', placeholder='username', name='username')
         .col-md-6.col-12
           input.tube-control(type='email', placeholder='E-Mail', name='email')
+        .col-12
+          input.tube-control(type='text', placeholder='Scuola', name='school')
         .col-md-6.col-12
           input.tube-control(type='password', placeholder='password', name='psw')
         .col-md-6.col-12
