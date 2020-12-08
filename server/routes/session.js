@@ -4,6 +4,7 @@ var router = express.Router();
 const users = require('../users.json');
 const multipart = require('connect-multiparty');
 const multipartMiddleware = multipart({ uploadDir: './uploads' })
+const executeQuery = require('../modules/sqlscript.js');
 
 router.post('/upload', multipartMiddleware, function (req, res, next) {
     res.render('upload', { title: 'Upload Test', fileName: req.files.filetoupload.name });
@@ -40,12 +41,15 @@ router.post('/', function (req, res, next) {
 });
 
 router.get('/users', function (req, res, next) {
-    res.render('users', { users: users }); 
+    executeQuery("select * from users", function(error, results){
+         res.render('users', { users: results }); 
+    });
 });
 
 router.get('/users/:email', function (req, res, next) {
-    let user = users.find(u => u.email == req.params.email);
-    res.render('user', user); 
+    executeQuery(`select * from users where email = '${req.params.email}'`, function(error, results){
+        res.render('user', results[0]); 
+   });
 });
 
 module.exports = router;
