@@ -36,18 +36,4 @@ router.get('/login', function (req, res, next) {
   res.render('login', { title: 'TubeStudents - Account' });
 });
 
-router.post('/login', function (req, res, next) {
-  executeQuery(`select id from users where email = ? and company = ?`, [req.body.username, req.body.psw], function (error, results) {
-    if (results.length == 0) {
-      res.send("Username o password non corretti!");
-    } else {
-      res.writeHead(302, {
-        Location: '/account'
-      });
-      res.end();
-    }
-  });
-});
-
-
 module.exports = router;

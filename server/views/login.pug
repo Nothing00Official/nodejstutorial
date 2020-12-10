@@ -3,7 +3,7 @@ extends layout
 block content
   .container
    h1 Accedi al tuo account
-   form.row(method='post')
+   form.row(method='post', action='/account')
     .col-12.col-md-6
       input.tube-control(type='text', placeholder='username', name='username')
     .col-12.col-md-6

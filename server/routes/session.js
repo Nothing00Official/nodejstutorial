@@ -14,42 +14,38 @@ router.get('/upload', function (req, res, next) {
     res.render('upload', { title: 'Upload Test' });
 });
 
-router.get('/', function (req, res, next) {
-    let username = req.body.username;
-    let email = req.body.email;
-    let psw = req.body.psw;
-    let rpsw = req.body.rpsw;
 
-    if (psw == rpsw) {
-        res.render('account', { title: 'Prova', date: new Date(), user: username, mail: email });
-    } else {
-        res.send("<p style=\"color:red\">Le password non coincidono!</p>")
-    }
+router.get('/', function (req, res, next) {
+    //controllare se la sessione esiste
+    return res.render('account', { title: 'Prova', user: null });
 });
 
 router.post('/', function (req, res, next) {
     let username = req.body.username;
-    let email = req.body.email;
     let psw = req.body.psw;
-    let rpsw = req.body.rpsw;
-
-    if (psw != rpsw) {
-        res.send("<p style=\"color:red\">Le password non coincidono!</p>")
-    } else {
-        res.send("<p style=\"color:green\">Registrazione completa!</p>")
-    }
+    executeQuery(`select id from users where email = ? and psw = ?`, [username, psw], function (error, results) {
+        if (error) throw error;
+        if (results.length == 0) {
+            res.send("Username o password non corretti!");
+        } else {
+            //creazione della sessione
+            return res.redirect('/account');
+        }
+    });
 });
 
 router.get('/users', function (req, res, next) {
-    executeQuery("select * from users", function(error, results){
-         res.render('users', { users: results }); 
+    executeQuery("select * from users", [], function (error, results) {
+        if (error) throw error;
+        res.render('users', { users: results });
     });
 });
 
 router.get('/users/:email', function (req, res, next) {
-    executeQuery(`select * from users where email = '${req.params.email}'`, function(error, results){
-        res.render('user', results[0]); 
-   });
+    executeQuery(`select * from users where email = ?`, [req.params.email], function (error, results) {
+        if (error) throw error;
+        res.render('user', results[0]);
+    });
 });
 
 module.exports = router;
