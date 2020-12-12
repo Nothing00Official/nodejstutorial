@@ -6,7 +6,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
     host: 'db.vitadafounder.com',
     user: 'tutorial',
-    password: '5117846253#vpsVDF',
+    password: '2534617851#vdfVPS',
     database: 'tutorial'
 });
 

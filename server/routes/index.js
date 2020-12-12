@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 const executeQuery = require('../modules/sqlscript.js');
+const session = require('express-session');
+
+router.use(session({ secret: 'asdas' }));
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -33,6 +36,9 @@ router.get('/assistenza', function (req, res, next) {
 });
 
 router.get('/login', function (req, res, next) {
+  if(req.session.user){
+    return res.redirect('/account');
+  }
   res.render('login', { title: 'TubeStudents - Account' });
 });
 
