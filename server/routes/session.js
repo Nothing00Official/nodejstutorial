@@ -5,9 +5,6 @@ const users = require('../users.json');
 const multipart = require('connect-multiparty');
 const multipartMiddleware = multipart({ uploadDir: './uploads' })
 const executeQuery = require('../modules/sqlscript.js');
-const session = require('express-session');
-
-router.use(session({ secret: 'asdas' }));
 
 router.post('/upload', multipartMiddleware, function (req, res, next) {
     if(!req.session.user){

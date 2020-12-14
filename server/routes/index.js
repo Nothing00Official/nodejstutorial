@@ -2,9 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 const executeQuery = require('../modules/sqlscript.js');
-const session = require('express-session');
-
-router.use(session({ secret: 'asdas' }));
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
