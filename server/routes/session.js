@@ -8,7 +8,7 @@ const executeQuery = require('../modules/sqlscript.js');
 
 router.post('/upload', multipartMiddleware, function (req, res, next) {
     if(!req.session.user){
-        return res.redirect('/');  
+        return res.redirect('/'); 
     }
     res.render('upload', { title: 'Upload Test', fileName: req.files.filetoupload.name });
 });
@@ -22,6 +22,9 @@ router.get('/upload', function (req, res, next) {
 
 
 router.get('/', function (req, res, next) {
+    if(req.cookies.session){
+        req.session.user = req.cookies.session;
+    }
     if (req.session.user) {
         return res.render('account', { title: 'Prova', user: req.session.user });
     }
@@ -33,6 +36,7 @@ router.get('/logout', function (req, res, next) {
        req.session.user = null;
        req.session.destroy();
     }
+    res.clearCookie("session");
     return res.redirect('/');
 });
 
@@ -45,6 +49,7 @@ router.post('/', function (req, res, next) {
             res.send("Username o password non corretti!");
         } else {
             req.session.user = username;
+            res.cookie("session", req.session.user);
             return res.redirect('/account');
         }
     });
