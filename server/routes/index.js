@@ -33,7 +33,7 @@ router.get('/assistenza', function (req, res, next) {
 });
 
 router.get('/login', function (req, res, next) {
-  if(req.session.user){
+  if (req.session.user) {
     return res.redirect('/account');
   }
   res.render('login', { title: 'TubeStudents - Account' });

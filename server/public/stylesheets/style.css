@@ -3,7 +3,7 @@ body { margin: 0; font-family: Ubuntu, "Helvetica Neue", sans-serif;}
 html {
   scroll-behavior: smooth;
 }
-input.tube-control{
+input.tube-control,textarea.tube-control{
   padding: 20px;
   outline: none;
   border: none;

@@ -3,6 +3,10 @@ extends layout
 block content
   .container
    h1 Contatti Assistenza
+   form(method='post')
+    input.tube-control(type='email',placeholder='Inserisci la tua mail',name='email')
+    textarea.tube-control(name='text',placeholder='Scrivi il testo')
+    input.tube-button(type='submit', value='send')
    div(style='overflow-x: auto;')
     table
       tr
@@ -22,4 +26,4 @@ block content
           h2 Direzione Progetto
         td
           a(href='mailto:direzione.tubestudents@edu.unidea.org')
-            h3 direzione.tubestudents@edu.unidea.org
+            h3 direzione.tubestudents@edu.unidea.org 
