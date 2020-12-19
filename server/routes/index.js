@@ -2,6 +2,15 @@ var express = require('express');
 var router = express.Router();
 
 const executeQuery = require('../modules/sqlscript.js');
+const nodemailer = require('nodemailer');
+let transport = nodemailer.createTransport({
+  host: 'gnldm1023.siteground.biz',
+  port: 465,
+  auth: {
+    user: 'info@craftuniversity.it',
+    pass: ''
+  }
+});
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -31,6 +40,41 @@ router.post('/registrazione-studente', function (req, res, next) {
 router.get('/assistenza', function (req, res, next) {
   res.render('support', { title: 'TubeStudents - Assistenza' });
 });
+
+router.post('/assistenza', function (req, res, next) {
+  const message = {
+    from: 'info@craftuniversity.it',
+    to: 'info@craftuniversity.it',
+    subject: 'Richiesta di supporto',
+    html: req.body.email + " ha scritto: " + req.body.text
+  }
+  const response = {
+    from: 'info@craftuniversity.it',
+    to: req.body.email,
+    subject: 'Abbiamo ricevuto la tua richiesta di supporto!',
+    html: 'grazie per averci contatto....',
+    attachments: [
+      {
+        filename: 'logo.jpg',
+        path: 'https://i.imgur.com/47A8HHI.jpg'
+      }
+    ]
+  }
+  transport.sendMail(message, function (err, info) {
+    if (err) {
+      res.send("Errore: " + err);
+    } else {
+      transport.sendMail(response, function (err, info) {
+        if (err) {
+          res.send("Errore: " + err);
+        } else {
+          res.send("Mail inviata con successo!");
+        }
+      });
+    }
+  });
+});
+
 
 router.get('/login', function (req, res, next) {
   if (req.session.user) {

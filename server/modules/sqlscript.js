@@ -12,5 +12,4 @@ const connection = mysql.createConnection({
 
 function executeQuery (sql, params, callback) {
     connection.query(sql, params, callback);
-    //connection.end();
 }
